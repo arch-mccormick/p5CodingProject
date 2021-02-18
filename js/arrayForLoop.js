@@ -1,27 +1,26 @@
 
+let capture;
 
+function preload(){
+  capture = createCapture(VIDEO);
+
+}
 function setup() {
-  // put setup code here to run once
+  createCanvas(320, 240);
 
-  // creating a canvas 500px by 500px
-  createCanvas(1920, 960);
+    for(let i=0; i < 50; i++){
+      capture(capture, random(320), random(240), 100, 100);
+      capture = createCapture(VIDEO);
+      capture.hide();
+      background(0)
+  }
 
-  //background color in R,G,B
-  background(0, 0, 0);
 
-  //print(windowWidth);
-  //change rectangle x,y coordinated to center of rect
-  rectMode(CENTER);
-
-  noCursor();
 }
 
-function draw() {
-
-  smooth();
+function draw(){
 
 
-  // Square at location (X, Y) with a side size of XX.
   square(960, 480, 960);
   noStroke();
   fill(0, 0, 0);
@@ -100,11 +99,5 @@ function draw() {
   square(960, 480, 60);
   noStroke();
   fill(225, 255, 255);
-
-
-  // outermost square
-
-  // innermost square
-
 
 }
